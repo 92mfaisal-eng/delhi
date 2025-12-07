@@ -1,0 +1,11 @@
+---
+- name: Install Apache based on OS
+  package:
+    name: "{{ apache_packages[ansible_facts.os_family] }}"
+    state: present
+
+- name: Ensure Apache service is running
+  service:
+    name: "{{ apache_service[ansible_facts.os_family] }}"
+    state: started
+    enabled: yes
