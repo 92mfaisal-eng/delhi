@@ -9,3 +9,9 @@
     name: "{{ apache_service[ansible_facts.os_family] }}"
     state: started
     enabled: yes
+
+
+---
+- include_tasks: install.yml
+- include_tasks: config.yml
+- include_tasks: deploy.yml
